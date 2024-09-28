@@ -14,10 +14,7 @@ const csvFile = require("./routes/csvFile");
 
 app.use("/api/v1/", users);
 app.use("/api/v1/", csvFile);
-
-const dbConnect = require('./lib/db');
-dbConnect();
-
+app.use(require("./lib/db"));
 
 
 const PORT = process.env.PORT || 3000;
