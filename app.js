@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require("express");
 const app = express();
+const dbConnect = require("./lib/db");
+dbConnect();
 const cors = require("cors");
 
 app.use(cors());
@@ -14,7 +16,6 @@ const csvFile = require("./routes/csvFile");
 
 app.use("/api/v1/", users);
 app.use("/api/v1/", csvFile);
-app.use(require("./lib/db"));
 
 const PORT = process.env.PORT || 3000;
 
